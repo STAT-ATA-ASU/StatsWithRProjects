@@ -1,0 +1,153 @@
+---
+title: "Exploring the [BRFSS](http://www.cdc.gov/brfss/) data"
+bibliography: ["proj1.bib", "PackagesUsed.bib"]
+output: 
+    bookdown::html_document2
+date: 'Last compiled: `r format(Sys.time(), "%B %d, %Y")`'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA, fig.align = "center", fig.height = 3, fig.width = 3, message = FALSE, warning = FALSE)
+```
+
+## Setup {-}
+
+### Packages and Reproducibility {-}
+
+Create a vector `PackagesUsed` that contains the names of the packages you will use in your project.  Use the function `write_bib()` from the package `knitr` to create a  `*.bib` file for `PackagesUsed` named `PackagesUsed.bib`.  Your code may look similar to what is below.  Delete these notes before turning in your project.
+
+    `r ''````{r, packages, echo = FALSE, message = FALSE, results = 'hide'}
+    PackagesUsed <- c("ggplot2", "knitr", "rmarkdown", "dplyr", "bookdown")
+    # Write bib information
+    knitr::write_bib(PackagesUsed, file = "./PackagesUsed.bib")
+    ```
+
+```{r, packages, echo = FALSE, message = FALSE, results = 'hide'}
+PackagesUsed <- c("DT", "ggplot2", "knitr", "rmarkdown", "dplyr", "bookdown")
+# Write bib information
+knitr::write_bib(PackagesUsed, file = "./PackagesUsed.bib")
+```
+
+**Example---edit as needed:**  In this project, the `dplyr` package by @R-dplyr is used to explore the data.  Visualization of the data 
+is accomplished with the `ggplot2` package created by @R-ggplot2. The data is a subset of @cdc.  This document is written with R Markdown using the `rmarkdown`, `knitr`, and `bookdown` packages written by @R-rmarkdown, @R-knitr, and @R-bookdown,  respectively.  
+
+
+```{r load-packages, message = FALSE}
+# load all packages used
+library(ggplot2)
+library(dplyr)
+```
+
+#### Load data {-}
+
+Make sure your data (`brfss2013.RData`) and your R Markdown file (`intro_data_prob_project.Rmd`) are in the same directory. When loaded,
+your data file will be called `brfss2013`.  If you use additional sources, you will need to add them to the `proj1.bib` file and cite them in the project. Delete this paragraph before you submit your project. 
+
+```{r load-data, eval = TRUE}
+load("brfss2013.RData")
+```
+
+View thd data:
+
+```{r, seeit}
+knitr::kable(brfss2013[1:5, 1:9], caption = "First five rows and nine columns of `brfss2013`", booktabs = TRUE)
+```
+
+#### Figure and Table Captions {-}
+
+Label all Figures and Tables, and then refer to them using the syntax "Figure `\@ref(fig:labelname)`" or "Table `\@ref(tab:labelname).`"  [Bookdown: Authoring Books with R Markdown](https://bookdown.org/yihui/bookdown/) is the definitive reference for the syntax used to label Figures and Tables. 
+
+A few examples labeling Figures and Tables follow.
+
+    `r ''````{r, sp1, fig.cap = "Scatterplot of `dist` versus `speed`", echo = FALSE}
+    ggplot(data = cars, aes(x = speed, y = dist)) + 
+      geom_point(color = "lightblue") + 
+      theme_bw()
+    ```
+
+```{r, sp1, fig.cap = "Scatterplot of `dist` versus `speed`", echo = FALSE}
+ggplot(data = cars, aes(x = speed, y = dist)) + 
+  geom_point(color = "lightblue") + 
+  theme_bw()
+```
+ 
+To refer to Figure \@ref(fig:sp1), use the syntax `\@ref(fig:sp1)`. Figure \@ref(fig:sp1) shows a scatter plot of distance *versus* speed for the `cars` data frame. 
+
+```{r, MS}
+T1 <- xtabs(~marital + sex, data = brfss2013)
+knitr::kable(T1, caption = "Something descriptive here", booktabs = TRUE)
+```
+
+Table \@ref(tab:MS) is a contingency table of marital status and gender.  Table \@ref(tab:TAB2) shows formatted regression output.
+
+```{r, TAB2}
+mod <- lm(dist ~ speed, data = cars)
+knitr::kable(coef(summary(mod)), caption = "Sample regression coefficients", booktabs = TRUE)
+```
+
+```{r, SS, fig.cap = "Another caption you should complete", fig.width = 4}
+ggplot(data = brfss2013, aes(x = sex, fill = smoke100)) + 
+   geom_bar(position = "fill") +
+   theme_bw()
+```
+
+Figure \@ref(fig:SS) shows the proportion of...
+
+
+Delete the **Figure and Table Captions** section before you submit your project. 
+
+
+
+* * *
+
+# Part 1: Data {-}
+
+Discuss and cite the data in `brfss2013`. Address how the data was obtained.  Delete this note before submitting your project.
+
+
+
+* * *
+
+# Part 2: Research questions {-}
+
+**Research quesion 1:**
+
+**Research quesion 2:**
+
+**Research quesion 3:**
+
+
+* * *
+
+# Part 3: Exploratory data analysis {-}
+
+NOTE: Insert code chunks as needed by clicking on the "Insert a new code chunk" 
+button (green button with orange arrow) above. Make sure that your code is visible
+in the project you submit. Delete this note before you submit your project.
+
+**Research question 1:**
+
+```{r}
+
+```
+
+
+
+
+**Research question 2:**
+
+```{r}
+
+```
+
+
+
+**Research question 3:**
+
+```{r}
+
+```
+
+
+
+## References

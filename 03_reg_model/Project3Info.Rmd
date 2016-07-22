@@ -1,0 +1,52 @@
+---
+title: "Project Information"
+output: html_document
+---
+
+Congratulations on your recent hire as a data scientist for Paramount Pictures! 
+
+Your boss has acquired data on how audiences and critics like movies as well as numerous other variables about the movies. The dataset includes information from [Rotten Tomatoes](http://www.rottentomatoes.com/) and [IMDB](http://www.imdb.com/) for a random sample of movies.
+
+Your boss is interested in learning what attributes make a movie popular. She is also interested in learning something new about movies. 
+
+As part of this project, you will complete an exploratory data analysis (EDA) of the data, develop a regression model, and make predictions with your model.
+
+All analysis must be completed using the R programming language via RStudio, and the write up must be an R Markdown document. To help you get started, a template Rmd file (`Project3Template.Rmd`) is provided.
+
+
+## Files
+
+Data---
+
+`movies.RData`
+
+Codebook---Review this file to find out what each column in the data represents.
+
+`movies_codebook.html`
+
+Rmd template---Use this template to write up your project. 
+
+`Project3Template.Rmd`
+
+Assessment rubric---Please review the assessment rubric before starting your project.
+
+`Project3Rubric.html`
+
+## More information on the data
+
+The data set is comprised of 651 randomly sampled movies produced and released before 2016.
+
+Some of the variables are informational and should not be included in a statistical analysis. It is up to you to decide which variables are meaningful and which variables should be omitted. For example, variables `actor1` through `actor5` were used to determine whether the movie has an actor or actress who won a best actor or actress Oscar.
+
+You might also choose to omit certain observations or restructure some of the variables to make them suitable for answering your research questions.
+
+When fitting a model, watch for multicollinearity, as some of the variables may be dependent on each other.
+
+Source: [Rotten Tomatoes](http://www.rottentomatoes.com/) and [IMDB](http://www.imdb.com/) APIs.
+
+## More information on model selection
+
+You may choose to use any of the model selection techniques presented in this course provided you justify your choice. 
+
+Regardless of whether you are doing forward selection or backward elimination, you should decide on a set of variables that will be considered for the model.
+Provide a justification for your selected variables. These do not have to include all of the variables in the dataset. In fact, some variables might be completely inappropriate to consider (such as URL of the movie) or clearly not informative (such as the actor variables with so many levels). 

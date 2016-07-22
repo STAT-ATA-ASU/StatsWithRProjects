@@ -1,0 +1,121 @@
+---
+title: "Statistical inference with the [GSS](http://gss.norc.org/) data"
+bibliography: ["proj2.bib", "PackagesUsed.bib"]
+output: 
+    bookdown::html_document2
+date: 'Last compiled: `r format(Sys.time(), "%B %d, %Y")`'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA, fig.align = "center", fig.height = 3, fig.width = 3, message = FALSE, warning = FALSE)
+```
+
+## Setup {-}
+
+### Packages and Reproducibility {-}
+
+Create a vector `PackagesUsed` that contains the names of the packages you will use in your project.  Use the function `write_bib()` from the package `knitr` to create a  `*.bib` file for `PackagesUsed` named `PackagesUsed.bib`.  Your code may look similar to what is below.  Delete these notes before turning in your project.
+
+    `r ''````{r, packages, echo = FALSE, message = FALSE, results = 'hide'}
+    PackagesUsed <- c("ggplot2", "knitr", "rmarkdown", "dplyr", "bookdown")
+    # Write bib information
+    knitr::write_bib(PackagesUsed, file = "./PackagesUsed.bib")
+    ```
+
+```{r, packages, echo = FALSE, message = FALSE, results = 'hide'}
+PackagesUsed <- c("DT", "ggplot2", "knitr", "rmarkdown", "dplyr", "bookdown")
+# Write bib information
+knitr::write_bib(PackagesUsed, file = "./PackagesUsed.bib")
+```
+
+**Example---edit as needed:**  In this project, the `dplyr` package by @R-dplyr is used to explore the data.  Visualization of the data 
+is accomplished with the `ggplot2` package created by @R-ggplot2. The data is from @gss.  This document is written with R Markdown using the `rmarkdown`, `knitr`, and `bookdown` packages written by @R-rmarkdown, @R-knitr, and @R-bookdown,  respectively.  
+
+
+```{r load-packages, message = FALSE}
+# load all packages used
+library(ggplot2)
+library(dplyr)
+```
+
+#### Load data {-}
+
+
+Make sure your data (`gss.RData`) and your R Markdown files are in the same directory. When loaded,
+your data file will be called `gss`. If you use additional sources, you will need to add them to the `proj2.bib` file and cite them in the project. Delete this paragraph before you submit your project. 
+
+```{r load-data}
+load("gss.RData")
+```
+
+#### Figure and Table Captions {-}
+
+Label all Figures and Tables, and then refer to them using the syntax "Figure `\@ref(fig:labelname)`" or "Table `\@ref(tab:labelname).`"  [Bookdown: Authoring Books with R Markdown](https://bookdown.org/yihui/bookdown/) is the definitive reference for the syntax used to label Figures and Tables. 
+
+A few examples labeling Figures and Tables follow.
+
+    `r ''````{r, sp1, fig.cap = "Scatterplot of `dist` versus `speed`", echo = FALSE}
+    ggplot(data = cars, aes(x = speed, y = dist)) + 
+      geom_point(color = "lightblue") + 
+      theme_bw()
+    ```
+
+```{r, sp1, fig.cap = "Scatterplot of `dist` versus `speed`", echo = FALSE}
+ggplot(data = cars, aes(x = speed, y = dist)) + 
+  geom_point(color = "lightblue") + 
+  theme_bw()
+```
+ 
+To refer to Figure \@ref(fig:sp1), use the syntax `\@ref(fig:sp1)`. Figure \@ref(fig:sp1) shows a scatter plot of distance *versus* speed for the `cars` data frame. 
+
+```{r, MS}
+T1 <- xtabs(~race + sex, data = gss)
+knitr::kable(T1, caption = "Something descriptive here", booktabs = TRUE)
+```
+
+Table \@ref(tab:MS) is a contingency table of race and gender.  Table \@ref(tab:TAB2) shows formatted regression output.
+
+```{r, TAB2}
+mod <- lm(dist ~ speed, data = cars)
+knitr::kable(coef(summary(mod)), caption = "Sample regression coefficients", booktabs = TRUE)
+```
+
+```{r, SS, fig.cap = "Another caption you should complete", fig.width = 4}
+ggplot(data = gss, aes(x = sex, fill = race)) + 
+   geom_bar(position = "fill") +
+   theme_bw()
+```
+
+Figure \@ref(fig:SS) shows the proportion of...
+
+
+Delete the **Figure and Table Captions** section before you submit your project. 
+
+* * *
+
+## Part 1: Data {-}
+
+
+* * *
+
+## Part 2: Research question {-}
+
+
+
+* * *
+
+## Part 3: Exploratory data analysis {-}
+
+NOTE: Insert code chunks as needed by clicking on the "Insert a new code chunk" 
+button (green button with orange arrow) above. Make sure that your code is visible
+in the project you submit. Delete this note before you submit your work.
+
+* * *
+
+## Part 4: Inference {-}
+
+NOTE: Insert code chunks as needed by clicking on the "Insert a new code chunk" 
+button (green button with orange arrow) above. Make sure that your code is visible
+in the project you submit. Delete this note before you submit your work.
+
+## References

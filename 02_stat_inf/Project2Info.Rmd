@@ -1,0 +1,69 @@
+---
+title: "Project Information"
+output: html_document
+---
+
+Identify a research question using the General Social Survey (GSS) dataset.
+
+All analysis must be completed using the R programming language via RStudio, and the write up must be an R Markdown document. To help you get started, a template Rmd file (`Project2Template.Rmd`) is provided.
+
+
+## Files
+
+Data -
+
+`gss.RData`
+
+Codebook - Review this file to find out what each column in the data represents.
+
+`gss.html`
+
+Rmd template - Use this template to write up your project. 
+
+`Project2Template.Rmd`
+
+Assessment rubric - Please review the assessment rubric before starting your project.
+
+`Project2Rubric.html`
+
+## Instructions
+
+Your project will consist of 4 parts:
+
+1. Data: (3 points) Describe how the observations in the sample are collected and the implications of this data collection method on the scope of inference (generalizability / causality). Note that you will need to look into documentation to answer this question. See http://gss.norc.org/ as well as the "More information on the data" section below.
+
+2. Research question: (3 points) Develop a research question you want to answer using the `gss.RData` data. Phrase your research question in a fashion that matches the scope of inference your dataset permits. You are welcome to create new variables based on existing ones. Include a brief discussion (1-2 sentences) explaining why your research question is of interest to you and/or your audience.
+
+3. EDA: (10 points) Perform exploratory data analysis (EDA) that addresses your research question.Your EDA should report appropriate numerical summaries and use appropriate graphs. R output, graphs, and tables should be accompanied by a brief interpretation.  All figures and tables should have captions.
+
+4. Inference: (28 points) Perform inference to answer your research question. 
+
+In addition to these parts, there are 6 points allocated to format, to overall organization, and to the readability of your project. There are a total of 50 points.
+
+
+## More information on inference
+
+INFERENCE: Statistical inference via hypothesis testing and/or confidence interval.
+
+* State hypotheses
+* Check conditions
+* State the method(s) to be used
+* Perform inference 
+* Interpret results
+* If applicable, state whether results from various methods agree
+
+It is your responsibility to figure out the appropriate methodology. What techniques you use to conduct inference will depend on the the type of data you are using and the underlying distriubtion of your test statistic. Conduct at least one hypothesis test. Report the p-value associated with your test as well as your statistical and English conclusion. If you are comparing two means, two medians, or two proportions, compute a confidence interval for the parameters of interest. If you are working with categorical variables with more than two levels, you will need to use methods such as ANOVA or chi-square tests for which there are no associated confidence intervals.  If your data fails some conditions and you cannot use a theoretical method, you should use an appropriate simulation-based method.
+
+* If you can use both theoretical and simulation-based methods, do so. 
+
+* If you can do both a hypothesis test and a confidence interval do both and comment on the results. 
+
+* It is essential to make sure the method you are using is appropriate for the data and the research question you are trying to answer.
+
+## More information on the data
+
+Since 1972, the General Social Survey (GSS) has been monitoring societal change and studying the growing complexity of American society. The GSS aims to gather data on contemporary American society in order to monitor and explain trends and constants in attitudes, behaviors, and attributes; to examine the structure and functioning of society in general as well as the role played by relevant subgroups; to compare the United States to other societies in order to place American society in comparative perspective and develop cross-national models of human society; and to make high-quality data easily accessible to scholars, students, policy makers, and others, with minimal cost and waiting.
+
+GSS questions cover a diverse range of issues including national spending priorities, marijuana use, crime and punishment, race relations, quality of life, confidence in institutions, and sexual behavior.
+
+Source: [Duke University Data and Visualization Services](http://guides.library.duke.edu/c.php?g=289704&p=1930833)
