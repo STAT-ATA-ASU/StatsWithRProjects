@@ -1,2 +1,3 @@
-# StatsWithRProjects
-Modified projects from the coursera Statistics with R specialization
+# Stats With R Projects
+
+Modified projects from the coursera specialization Statistics with R
